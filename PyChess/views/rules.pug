@@ -1,0 +1,158 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='/css/index.css')
+        link(rel='stylesheet' href='/css/rules.css')
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet")
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        title Games Rules
+    body 
+        .top-header
+            .logo
+                img(src='/img/PyChess Logo.jpg' alt='PyChess Logo')
+            input(type="checkbox" id="nav_check" hidden)
+            .nav
+                .logo
+                    img(src="/img/PyChess Logo.jpg" alt="PyChess Logo")
+                .search-box     
+                    form(action="" method="post").search-form
+                        input(type="text" name="search" id="srch" placeholder="Room Id")
+                        button(type="submit")
+                            i(class="fa fa-search")
+                ul 
+                    li 
+                        a(href='/').navlink Home
+                    li 
+                        a(href='/rules').navlink Rules and Regulation
+                    if user
+                        .icon 
+                            li.navbar-icon
+                                a(href='/profile')
+                                    i(class="fas fa-user")
+                            li.navbar-icon
+                                a(href="/logout" target='_blank')
+                                    i(class="fas fa-sign-out-alt")
+                    else 
+                        li 
+                            a(href='/login').navlink Log in
+                        li 
+                            a(href='/register').cta-button Sign up
+
+            label(for="nav_check").hamburger
+                .line 
+                .line 
+                .line 
+        .title-container
+            .chess-img-container 
+                img(src='/img/Chess Image.webp' alt='Chess Image')
+            .content-container
+                .header
+                    p 📋 Pychess Game Rules 
+                .content
+                    p Master the board, follow the code – play by the rules ! ✅
+            .python-img-container 
+                    img(src='/img/Python Logo.png' alt='python logo')
+
+        .info-container
+            .info-content
+                h2 How to Play ❓
+                .info-description-box
+                    .info-description
+                        .info-description-heading
+                            h3 🛠️ Initial Setup
+                        p At the beginning, each player draws three 🔒 Lock Cards, determining which chess pieces will be locked. Players attempt to unlock 
+                         |these pieces by drawing 🔓 Unlock Cards and answering questions.
+                    .info-description
+                        .info-description-heading
+                            h3 ♟️ Game Progression and Special Actions
+                        p Players physically play chess on a board, following traditional chess rules. Special squares (🟩 green and 🟧 orange) trigger 
+                         |additional gameplay elements, where players must draw a 🃏 question card, scan its QR code 📱, and answer Python-related questions to progress.
+                    .info-description
+                        .info-description-heading
+                            h3 ⏳ Time and Winning Conditions
+                        p Players have 15 minutes ⏲️ each, including both gameplay and answering questions. If a player’s time runs out, they lose unless the opponent 
+                         |doesn’t have enough material to checkmate, leading to a draw 🤝. The game is won by checkmate ♔.
+                    button(id="next" onclick="nextCard()" style="cursor: pointer;") &gt;
+                    button(id="prev" onclick="prevCard()" style="cursor: pointer;") &lt;
+                .showIndex 
+                    .index
+                    .index
+                    .index
+
+        .card-slide-container
+            .border-container
+                .card-title-container
+                    h2 ⚡Power Cards⚡ 
+                    hr
+                .card-container
+                    .previous-button-container(onclick="prevCards()" style="cursor: pointer;")
+                        img(src="/img/Left Arrow.png" alt="Previous")
+                    .card-carousel
+                        #prevCard.card.small-card
+                            .small-card-name
+                        #currentCard.card.large-card
+                            .name-container
+                                .large-card-name
+                            hr
+                            .function-container
+                                span Function 🔧
+                                .large-card-function
+                            hr
+                            .when-container
+                                span When ⏰
+                                .large-card-when
+                            hr
+                            .how-container
+                                span Instruction 📖
+                                .large-card-how
+                            
+                        #nextCard.card.small-card
+                            .small-card-name
+                    .next-button-container(onclick="nextCards()" style="cursor: pointer;")
+                        img(src="/img/Right Arrow.png" alt="Next")
+                
+        .divider
+
+        .footer
+            .footer-container
+                .footer-context
+                    .footer-links
+                        h3 Quick Links
+                        .underline
+                        ul
+                            li
+                                a(href='#') Home
+                            li
+                                a(href='#about-us') About Us
+                            li
+                                a(href='/rules') Game Rules &amp; Regulations
+                            li
+                                a(href='#') Contact Us
+                    .footer-contact
+                        h3 Contact Us
+                        .underline
+                        ul 
+                            li 
+                                p Email: zrchen2004@gmail.com
+                            li 
+                                p Phone: +6017-6262550
+                    .footer-social
+                        h3 Follow Us
+                        .underline
+                        .social-links 
+                            a(href='https://www.facebook.com/zirong.chen.144/', target='_blank')
+                                i(class="fab fa-facebook-f")
+                            a(href="https://x.com/0721Zr" target='_blank')
+                                i(class="fab fa-twitter")
+                            a(href='https://www.instagram.com/zi_rong_0721/')
+                                i(class="fab fa-instagram")
+                            a(href="https://www.linkedin.com/feed/" target="blank")
+                                i(class="fab fa-linkedin-in")
+                    .footer-copyright
+                        p © 2024 PyChess. All rights reserved. 
+
+        script(src='/js/card.js')
+        script(src='/js/infoCard.js')

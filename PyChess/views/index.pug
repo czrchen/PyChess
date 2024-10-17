@@ -1,0 +1,150 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title PyChess Home Page
+        link(rel='stylesheet' href='/css/index.css')
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css")
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet")
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+    body
+        .top-header
+            .logo
+                img(src='/img/PyChess Logo.jpg' alt='PyChess Logo')
+            input(type="checkbox" id="nav_check" hidden)
+            .nav
+                .logo
+                    img(src="/img/PyChess Logo.jpg" alt="PyChess Logo")
+                if user
+                    .search-box#user     
+                        form(action="" method="post").search-form
+                            input(type="text" name="search" id="srch" placeholder="Room Id")
+                            button(type="submit")
+                                i(class="fa fa-search")
+                else 
+                    .search-box     
+                        form(action="" method="post").search-form
+                            input(type="text" name="search" id="srch" placeholder="Room Id")
+                            button(type="submit")
+                                i(class="fa fa-search")
+                ul 
+                    li 
+                        a(href='#').navlink Home
+                    li 
+                        a(href='/rules').navlink Rules and Regulation
+                    if user 
+                        .icon
+                            li.navbar-icon
+                                a(href="/profile")
+                                    i(class="fas fa-user")
+                            li.navbar-icon 
+                                a(href="/logout")
+                                    i(class="fas fa-sign-out-alt")
+                    else 
+                        li 
+                            a(href='/login').navlink Log in
+                        li 
+                            a(href='/register').cta-button Sign up
+
+            label(for="nav_check").hamburger
+                .line 
+                .line 
+                .line 
+
+        .title-container
+            .chess-img-container 
+                img(src='/img/Chess Image.webp' alt='Chess Image')
+            .content-container
+                .header
+                    p 🧠 Play Chess, Learn Python
+                .content
+                    p Enhance your Python skills with chess—strategic fun meets 
+                     |coding practice in a unique learning experience. Play, learn, and excel!
+                .bottom
+                    if user
+                        .play-bttn#playButton
+                            a(href='/game').cta-button ♟️ Play now
+                    else
+                        .signup-bttn
+                            a(href='/register').cta-button ✍️ Sign Up to Play
+            .python-img-container 
+                    img(src='/img/Python Logo.png' alt='python logo')
+
+        .info-container#about-us
+            .info-content
+                h2 About us 🤝
+                .info-description-box
+                    .info-description.fade-element
+                        h3 Hybrid Chess Experience
+                        p Our innovative chess game merges traditional chess with modern technology, combining the strategic depth of chess ♟️ with 
+                         |Python programming challenges 💻 for an educational and interactive experience.
+                    .info-description.fade-element
+                        h3 Interactive Gameplay
+                        p Players enjoy not only a classic chess match ♟️ but also solve programming questions 🧩, all while facing exciting game 
+                         |challenges ⚔️. The web app integrates seamlessly with the physical game 📲, enabling real-time tracking and question management.
+                    .info-description.fade-element
+                        h3 Comprehensive Learning Platform
+                        p We aim to foster both strategic thinking 🤔 and technical skills 💡 by providing post-game reviews 📊 and creating a platform 
+                         |that is both fun 🎉 and rewarding for students and chess enthusiasts alike.
+                    button(id="next" onclick="nextCard()" style="cursor: pointer;") &gt;
+                    button(id="prev" onclick="prevCard()" style="cursor: pointer;") &lt;
+                .showIndex 
+                    .index
+                    .index
+                    .index
+
+        .rules-background-container 
+            .rules-container
+                .rules-title 
+                    h2 Game Rules &amp; Regulations
+                .rules-content 
+                    p Before diving into the game, it’s important to familiarize yourself with our unique blend of classic chess and interactive 
+                     |challenges. Our rules are designed to ensure a fair and enjoyable experience for all players. We’ve combined the strategic depth 
+                     |of traditional chess moves with engaging Python programming tasks, creating a dynamic game that tests both your logical thinking 
+                     |and coding skills. Whether you're capturing a piece or unlocking a chess move, every decision counts.
+                .rules-button
+                    a(href='/rules') Learn More ➔
+        .divider
+
+        .footer
+            .footer-container
+                .footer-context
+                    .footer-links
+                        h3 Quick Links
+                        .underline
+                        ul
+                            li
+                                a(href='#') Home
+                            li
+                                a(href='#about-us') About Us
+                            li
+                                a(href='/rules') Game Rules &amp; Regulations
+                            li
+                                a(href='#') Contact Us
+                    .footer-contact
+                        h3 Contact Us
+                        .underline
+                        ul 
+                            li 
+                                p Email: zrchen2004@gmail.com
+                            li 
+                                p Phone: +6017-6262550
+                    .footer-social
+                        h3 Follow Us
+                        .underline
+                        .social-links 
+                            a(href='https://www.facebook.com/zirong.chen.144/', target='_blank')
+                                i(class="fab fa-facebook-f")
+                            a(href="https://x.com/0721Zr" target='_blank')
+                                i(class="fab fa-twitter")
+                            a(href='https://www.instagram.com/zi_rong_0721/')
+                                i(class="fab fa-instagram")
+                            a(href="https://www.linkedin.com/feed/" target="blank")
+                                i(class="fab fa-linkedin-in")
+                    .footer-copyright
+                        p © 2024 PyChess. All rights reserved. 
+
+        script(src='/js/infoCard.js')
+        script(src='/js/animation.js')
+        script(src='/js/genCode.js')

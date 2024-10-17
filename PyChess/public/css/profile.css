@@ -1,0 +1,266 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.left-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8ECE0;
+    text-align: center;
+    flex-basis: 40%;
+    padding:50px; 
+    gap:40px;
+}
+
+.home-container{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.home-container img{
+    width: 50px;
+    height: 50px;
+}
+
+.left-container-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.left-container-logo hr{
+    width: 33%;
+    height: 2px;
+    border: none; 
+    background-color: black; 
+    margin: 0 10px; 
+}
+
+.left-container-logo img{
+    width: 100px;
+    height: 100px;
+}
+
+.profile-picture-container{
+    width: 250px; 
+    height: 250px; 
+    border-radius: 50%; 
+    border: 3px solid black; 
+    margin: auto; 
+    background-image: url('../img/Profile\ Picture.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+.profile-description-container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.userID-container, .userEmail-container{
+    border: 2px solid #ccc; 
+    width: 400px;
+    border-radius: 8px; 
+    padding: 7px 10px; 
+    background-color: #f9f9f9; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    margin: 5px 0; /* Add space between the containers */
+    margin-right: 100px;
+    font-family: 'Roboto', sans-serif; 
+    font-size: 16px; 
+    color: #333; 
+    justify-content: center;
+}
+
+.right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 140px;
+    flex-basis: 60%;
+}
+
+.header-container h2 {
+    font-size: 38px;
+    font-weight: bold;
+    color: #5B2C6F; /* Updated color for header */
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+
+.context-container {
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.context-container h4 {
+    font-size: 18px;
+    color: #5B2C6F;
+    margin-bottom: 10px;
+    text-align: left;
+    flex-basis: 30%;
+}
+
+.win-container, .lose-container, .draw-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure label and bar are spaced */
+    flex-basis: 70%; /* Maintain the same flex basis for consistency */
+}
+
+.progress-bar {
+    height: 30px;
+    width: 100%; /* Keep this to ensure the bar occupies the full width */
+    background-color: #D6EAF8; /* Background color for the entire bar */
+    border-radius: 5px;
+    margin-left: 20px; /* Adds spacing between the label and the bar */
+    margin-top: 15px;
+    position: relative; /* Keep this for absolute positioning later */
+}
+
+#winBar, #loseBar, #drawBar {
+    height: 100%;
+    border-radius: 5px; 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+}
+
+.win-color {
+    background-color: #4CAF50; /* Green for wins */
+}
+
+.lose-color {
+    background-color: #F44336; /* Red for losses */
+}
+
+.draw-color {
+    background-color: #FFC107; /* Yellow for draws */
+}
+
+/* Circular win-rate progress bar */
+.winrate-container {
+    text-align: center;
+}
+
+.circle-container {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 20px auto;
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 10px solid #eee;
+    position: relative;
+}
+
+.circle span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+h4{
+    font-size: 18px;
+    color: #5B2C6F;
+}
+
+@media only screen and (max-width:1200px){
+    .container {
+        flex-direction: column; /* Stacks the containers vertically */
+    }
+    
+    .left-container, .right-container {
+        flex-basis: 100%; /* Make both containers take full width on small screens */
+        padding: 50px; /* Reduce padding */
+    }
+
+    .profile-picture-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .left-container-logo img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .userID-container, .userEmail-container {
+        width: 100%; /* Full width on small screens */
+        margin-left: -10px;
+    }
+    
+    .progress-bar {
+        height: 20px;
+    }
+}
+
+@media only screen and (max-width:480px){
+    .container {
+        flex-direction: column; /* Stacks the containers vertically */
+    }
+    
+    .left-container, .right-container {
+        flex-basis: 100%; /* Make both containers take full width on small screens */
+        padding: 20px; /* Reduce padding */
+    }
+
+    .right-container {
+        padding: 20px;
+    }
+
+    .profile-picture-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .left-container-logo img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .userID-container, .userEmail-container {
+        width: 100%; /* Full width on small screens */
+        margin-left: -10px;
+        font-size: 14px; /* Smaller font size */
+    }
+    
+    .header-container h2 {
+        font-size: 28px; /* Smaller font for small screens */
+    }
+
+    .context-container h4 {
+        font-size: 16px;
+    }
+    
+    .progress-bar {
+        height: 25px;
+    }
+}

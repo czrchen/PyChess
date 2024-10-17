@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='/css/form.css')
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+        title PyChess Login
+    body
+        .container
+            .form-container
+                .form-heading
+                    .heading-header
+                        h2 Welcome to Pychess
+                    .heading-logo 
+                        hr
+                        img(src='/img/PyChess Login.jpg' alt='PyChess Logo')
+                        hr
+
+                form(action="/login" method="POST" id="login-form")
+                    .userID-container
+                        .input-area
+                            i(class="fa fa-user")
+                            input(type="text" id="user-id" name="user_id" placeholder="Enter your User ID" required)
+                    
+                    .userPassword-container
+                        .input-area
+                            i(class="fa fa-lock")
+                            input(type="password" id="password" name="user_password" placeholder="Enter your password" required)
+                    
+                    .button-container#login-page
+                            button.button(type="submit") Login
+                            .button#home
+                                a(href="/") Home
+                    
+                    .bottom-container#login-page
+                        .register-text
+                            p Don't have an account? 
+                        .register-link
+                            a(href="/register") Register Now!
+
+        script(src="/js/validateLogin.js")

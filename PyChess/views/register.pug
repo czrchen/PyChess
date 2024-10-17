@@ -1,0 +1,54 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title PyChess Register
+        link(rel='stylesheet' href='/css/form.css')
+        link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+    body
+        .container
+            .left-container
+            .form-container#register-page
+                .form-heading
+                    .heading-header
+                        h2 Register to Join Us!
+                    .heading-logo 
+                        hr
+                        img(src='/img/PyChess Login.jpg' alt='PyChess Logo')
+                        hr
+                form(action="/register" method="POST" id="register-form")
+                    .userID-container
+                        .input-area
+                            i(class="fa fa-user")
+                            input(type="text" id="user-id" name="user_id" placeholder="Enter your User ID: " required)
+                    
+                    .userEmail-container
+                        .input-area
+                            i(class="fa fa-envelope")
+                            input(type="text" id="user-email" name="user_email" placeholder="Enter your Email: " required)
+
+                    .userPassword-container
+                        .input-area
+                            i(class="fa fa-lock")
+                            input(type="password" id="password" name="user_password" placeholder="Enter your password: " required)
+
+                    .userConfirmPassword-container
+                        .input-area
+                            i(class="fa fa-lock")
+                            input(type="password" id="confirm-password" name="confirm_password" placeholder="Re-Enter your password: " required)
+                    
+                    .button-container
+                        button.button(type="submit") Register
+                        .button#home
+                                a(href="/") Home
+                    
+                    .bottom-container
+                        .register-text
+                            p Already Have an Account? 
+                        .register-link
+                            a(href="/login") Log In
+            .right-container
+
+        script(src="/js/validateRegister.js")
